@@ -5,7 +5,11 @@ import jakarta.persistence.*;
 @table(name="students")
 import java.time.LocalDate;
 
+
+
 public class Student {
+    @Id
+    @GeneratedValue(strategy= GeneratedType.IDENTITY)
     private long id;
     private String name;
     private String email;
