@@ -4,9 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.http.Repository;
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
+import jakarta.validation.valid;
 
 @RestController
 public class StudentController {
@@ -15,7 +16,7 @@ public class StudentController {
 
     @PostMapping("/postdata")
     public Student postdata(@RequestBody Student student){
-        return studentService.saveStudent(student);
+        return new Responsentity<> studentService.saveStudent(student);
     }
     
     
