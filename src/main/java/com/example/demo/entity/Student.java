@@ -1,7 +1,6 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "student")
@@ -11,18 +10,24 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")  // Explicitly map; adjust nullable/length as needed
     private String name;
+
+    @Column(name = "email")
     private String email;
 
     // Constructors
     public Student() {
     }
 
-    public Student(Long id, String name, String email) {
-        this.id = id;
+    public Student(String name, String email) {
         this.name = name;
         this.email = email;
     }
+
+    // If you plan to add dob and cgpa later:
+    // private LocalDate dob;
+    // private Float cgpa;
 
     // Getters & Setters
     public Long getId() {
